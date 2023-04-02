@@ -1,21 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import axios from "axios";
 const ProductContext = createContext();
-
+// cart provider oluşturulacak
 export const ProductProvider = ({ children }) => {
   const URL = "https://course-api.com/react-useReducer-cart-project ";
-  // dummyjson üzerinden api alinabilir
 
   const [products, setProducts] = useState([]);
 
-  // fetch işlemi axios kütüphanesi ile yapılabilir.
   const fetchData = async () => {
-    const resp = await fetch(URL);
-    const data = await resp.json();
+    const { data } = await axios(URL);
     setProducts(data);
   };
 
-  // fetch işlemi esnasında kullanıcıya yükleme ekranı göstermek için state oluşturulabilir.
   useEffect(() => {
     fetchData();
   }, []);
