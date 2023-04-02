@@ -1,4 +1,4 @@
-function Product({ product }) {
+function Product({ product, cart, setCart }) {
   return (
     <div className="product">
       <div className="product-img">
@@ -8,7 +8,9 @@ function Product({ product }) {
         <h3>{product.title}</h3>
         <div className="bottom">
           <span className="price">${product.price}</span>
-          <button>Add to cart</button>
+          <button onClick={() => setCart([...cart, product])}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

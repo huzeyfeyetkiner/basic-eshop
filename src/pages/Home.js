@@ -1,8 +1,10 @@
 import { useProduct } from "../context/ProductContext";
 import Product from "../components/Product.js";
-function Home() {
-  const { products, setCartItems } = useProduct();
+import { useCart } from "../context/CartContext";
 
+function Home() {
+  const { products } = useProduct();
+  const { cart, setCart } = useCart();
   if (products.length < 1) {
     return (
       <div className="loading">
@@ -19,7 +21,8 @@ function Home() {
           <Product
             key={product.id}
             product={product}
-            setCartItems={setCartItems}
+            cart={cart}
+            setCart={setCart}
           />
         );
       })}
