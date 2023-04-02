@@ -2,6 +2,8 @@ import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import { RiShoppingBasketLine } from "react-icons/ri";
+
 function App() {
   const navigate = useNavigate();
   return (
@@ -9,7 +11,9 @@ function App() {
       <div className="nav">
         <ul>
           <li onClick={() => navigate("/")}> Home</li>
-          <li onClick={() => navigate("/cart")}>Cart</li>
+          <li onClick={() => navigate("/cart")}>
+            <RiShoppingBasketLine />
+          </li>
         </ul>
       </div>
 

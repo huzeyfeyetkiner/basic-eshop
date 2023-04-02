@@ -2,7 +2,7 @@ function Product({ product }) {
   return (
     <div className="product">
       <div className="product-img">
-        <img src={product.img} alt="" width={"190rem"} />
+        <img src={product.img} alt="" />
       </div>
       <div className="product-info">
         <h3>{product.title}</h3>

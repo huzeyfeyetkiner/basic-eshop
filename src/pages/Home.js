@@ -4,6 +4,7 @@ function Home() {
   const { products } = useProduct();
 
   return (
+    // banner eklenebilir
     <div className="home">
       {products.map((product) => {
         return <Product key={product.id} product={product} />;
