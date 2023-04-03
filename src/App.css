@@ -128,6 +128,14 @@ body {
   font-weight: 200;
 }
 
+.btn-clear {
+  padding: 1rem;
+  background-color: #06b6d4;
+  color: #f7f7f9;
+  border: none;
+  border-radius: 0.25rem;
+}
+
 .cart-item {
   margin: 0.2rem;
   width: 60%;

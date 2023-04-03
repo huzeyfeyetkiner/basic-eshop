@@ -8,7 +8,16 @@ function Product({ product, cart, setCart }) {
         <h3>{product.title}</h3>
         <div className="bottom">
           <span className="price">${product.price}</span>
-          <button onClick={() => setCart([...cart, product])}>
+          <button
+            onClick={() => {
+              const temp = cart.find((item) => item.id === product.id);
+              if (temp) {
+                temp.amount += 1;
+              } else {
+                setCart([...cart, product]);
+              }
+            }}
+          >
             Add to cart
           </button>
         </div>

@@ -13,6 +13,8 @@ function Cart() {
       {cart.map((item) => {
         return <CartItem key={item.id} item={item} />;
       })}
+      <h3>Total Price: $555</h3>
+      <button className="btn-clear">Clear Cart</button>
     </div>
   );
 }
