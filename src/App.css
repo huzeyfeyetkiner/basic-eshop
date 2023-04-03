@@ -22,9 +22,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 3rem; */
-  /* background-color: #101010; */
-  /* background-color: #645cff; */
   background-color: #06b6d4;
   height: 10vh;
 }
@@ -114,3 +111,77 @@ body {
   font-size: 1.6rem;
   font-weight: 600;
 }
+
+/* CART PAGE STYLES START */
+.cart-page {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item {
+  margin: 0.2rem;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.left-side > img {
+  width: 10rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.info > h4 {
+  font-size: 2.4rem;
+  color: #334155;
+  font-weight: 100;
+}
+
+.info > span {
+  font-size: 1.6rem;
+}
+
+.remove-btn {
+  margin-top: 1%;
+  background-color: transparent;
+  color: #06b6d4;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-side > button {
+  background-color: transparent;
+  border: none;
+  color: #06b6d4;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.right-side > span {
+  font-size: 2rem;
+}
+
+/* CART PAGE STYLES FINISH */

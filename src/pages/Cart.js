@@ -8,7 +8,7 @@ function Cart() {
     return <h1>There is no item in the bag.</h1>;
   }
   return (
-    <div>
+    <div className="cart-page">
       {cart.map((item) => {
         return <CartItem key={item.id} item={item} />;
       })}

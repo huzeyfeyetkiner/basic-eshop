@@ -3,31 +3,28 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import { RiShoppingBasketLine } from "react-icons/ri";
-import { useProduct } from "./context/ProductContext";
-import { CartProvider } from "./context/CartContext";
+import { useCart } from "./context/CartContext";
 
 function App() {
-  const { products } = useProduct();
+  const { cart } = useCart();
   const navigate = useNavigate();
   return (
-    <CartProvider>
-      <div className="App">
-        <div className="nav">
-          <ul>
-            <li onClick={() => navigate("/")}> Home</li>
-            <li onClick={() => navigate("/cart")}>
-              <RiShoppingBasketLine />
-              {products.length}
-            </li>
-          </ul>
-        </div>
-
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+    <div className="App">
+      <div className="nav">
+        <ul>
+          <li onClick={() => navigate("/")}> Home</li>
+          <li onClick={() => navigate("/cart")}>
+            <RiShoppingBasketLine />
+            {cart.length}
+          </li>
+        </ul>
       </div>
-    </CartProvider>
+
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </div>
   );
 }
 
