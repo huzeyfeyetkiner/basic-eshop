@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 function CartItem({ item }) {
   // cart item içerisindeki amount miktarını arttırabilmek için kullanılan state
-  const [tempAmount, setTempAmount] = useState(item.amount);
-
-  useEffect(() => {
-    console.log(tempAmount * item.price);
-  }, [tempAmount, item.price]);
 
   return (
     <div className="cart-item">
@@ -20,22 +14,11 @@ function CartItem({ item }) {
         </div>
       </div>
       <div className="right-side">
-        <button
-          onClick={() => {
-            item.amount += 1;
-            setTempAmount(item.amount);
-          }}
-        >
+        <button>
           <AiFillCaretUp />
         </button>
-        <span>{tempAmount}</span>
-        <button
-          onClick={() => {
-            // 0 altı amoun için düzenleme yapılacak
-            item.amount -= 1;
-            setTempAmount(item.amount);
-          }}
-        >
+        <span>{item.amount}</span>
+        <button>
           <AiFillCaretDown />{" "}
         </button>
       </div>

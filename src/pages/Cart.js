@@ -2,7 +2,7 @@
 import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem.js";
 function Cart() {
-  const { cart } = useCart();
+  const { clearCart, cart } = useCart();
 
   if (cart.length < 1) {
     return <h1>There is no item in the bag.</h1>;
@@ -14,7 +14,9 @@ function Cart() {
         return <CartItem key={item.id} item={item} />;
       })}
       <h3>Total Price: $555</h3>
-      <button className="btn-clear">Clear Cart</button>
+      <button className="btn-clear" onClick={clearCart}>
+        Clear Cart
+      </button>
     </div>
   );
 }

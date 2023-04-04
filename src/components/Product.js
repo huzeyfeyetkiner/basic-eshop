@@ -1,4 +1,7 @@
-function Product({ product, cart, setCart }) {
+import { useCart } from "../context/CartContext";
+
+function Product({ product }) {
+  const { addCart } = useCart();
   return (
     <div className="product">
       <div className="product-img">
@@ -10,12 +13,7 @@ function Product({ product, cart, setCart }) {
           <span className="price">${product.price}</span>
           <button
             onClick={() => {
-              const temp = cart.find((item) => item.id === product.id);
-              if (temp) {
-                temp.amount += 1;
-              } else {
-                setCart([...cart, product]);
-              }
+              addCart(product);
             }}
           >
             Add to cart
