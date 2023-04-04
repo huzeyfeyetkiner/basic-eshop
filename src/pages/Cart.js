@@ -5,7 +5,11 @@ function Cart() {
   const { clearCart, cart } = useCart();
 
   if (cart.length < 1) {
-    return <h1>There is no item in the bag.</h1>;
+    return (
+      <div className="cart-page">
+        <h1>Your Cart is Empty</h1>
+      </div>
+    );
   }
   return (
     <div className="cart-page">
