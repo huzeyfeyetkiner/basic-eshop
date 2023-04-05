@@ -9,8 +9,6 @@ const initialState = {
 };
 
 export const CartProvider = ({ children }) => {
-  // cart için ucereducer kullanılabilir.
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearCart = () => {
@@ -21,10 +19,15 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: "ADD_ITEM", payload: item });
   };
 
+  const deleteItem = (id) => {
+    dispatch({ type: "DELETE_ITEM", payload: id });
+  };
+
   const values = {
     ...state,
     clearCart,
     addCart,
+    deleteItem,
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;

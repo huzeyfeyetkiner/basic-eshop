@@ -1,7 +1,8 @@
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { useCart } from "../context/CartContext";
 
 function CartItem({ item }) {
-  // cart item içerisindeki amount miktarını arttırabilmek için kullanılan state
+  const { deleteItem } = useCart();
 
   return (
     <div className="cart-item">
@@ -10,7 +11,9 @@ function CartItem({ item }) {
         <div className="info">
           <h4>{item.title}</h4>
           <span>${item.price}</span>
-          <button className="remove-btn">remove</button>
+          <button className="remove-btn" onClick={() => deleteItem(item.id)}>
+            remove
+          </button>
         </div>
       </div>
       <div className="right-side">

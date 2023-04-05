@@ -7,6 +7,12 @@ const reducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
     return { ...state, cart: [...state.cart, action.payload] };
   }
+  if (action.type === "DELETE_ITEM") {
+    return {
+      ...state,
+      cart: state.cart.filter((item) => item.id !== action.payload),
+    };
+  }
 };
 
 export default reducer;
