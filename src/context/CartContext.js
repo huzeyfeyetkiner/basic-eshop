@@ -15,12 +15,20 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: "CLEAR_CART" });
   };
 
-  const addCart = (item) => {
-    dispatch({ type: "ADD_ITEM", payload: item });
+  const addCart = (item, id) => {
+    dispatch({ type: "ADD_ITEM", payload: { item, id } });
   };
 
   const deleteItem = (id) => {
     dispatch({ type: "DELETE_ITEM", payload: id });
+  };
+
+  const increase = (id) => {
+    dispatch({ type: "INCREASE", payload: id });
+  };
+
+  const decrease = (id) => {
+    dispatch({ type: "DECREASE", payload: id });
   };
 
   const values = {
@@ -28,6 +36,8 @@ export const CartProvider = ({ children }) => {
     clearCart,
     addCart,
     deleteItem,
+    increase,
+    decrease,
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;

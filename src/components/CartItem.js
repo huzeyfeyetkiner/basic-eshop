@@ -2,7 +2,7 @@ import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { useCart } from "../context/CartContext";
 
 function CartItem({ item }) {
-  const { deleteItem } = useCart();
+  const { deleteItem, increase, decrease } = useCart();
 
   return (
     <div className="cart-item">
@@ -17,11 +17,11 @@ function CartItem({ item }) {
         </div>
       </div>
       <div className="right-side">
-        <button>
+        <button onClick={() => increase(item.id)}>
           <AiFillCaretUp />
         </button>
         <span>{item.amount}</span>
-        <button>
+        <button onClick={() => decrease(item.id)}>
           <AiFillCaretDown />{" "}
         </button>
       </div>

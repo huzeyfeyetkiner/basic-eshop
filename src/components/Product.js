@@ -13,7 +13,7 @@ function Product({ product }) {
           <span className="price">${product.price}</span>
           <button
             onClick={() => {
-              addCart(product);
+              addCart(product, product.id);
             }}
           >
             Add to cart
