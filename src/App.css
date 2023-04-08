@@ -205,3 +205,7 @@ body {
 }
 
 /* CART PAGE STYLES FINISH */
+
+.toast {
+  font-size: 2rem;
+}
