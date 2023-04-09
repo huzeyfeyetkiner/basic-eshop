@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "./reducer";
 const CartContext = createContext();
 
@@ -30,6 +30,14 @@ export const CartProvider = ({ children }) => {
   const decrease = (id) => {
     dispatch({ type: "DECREASE", payload: id });
   };
+
+  const getTotal = () => {
+    dispatch({ type: "GET_TOTAL" });
+  };
+
+  useEffect(() => {
+    getTotal();
+  }, [state.cart]);
 
   const values = {
     ...state,

@@ -1,13 +1,13 @@
 //cart içeriği için useReducer kullanılabilir
 import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem.js";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function Cart() {
-  const { clearCart, cart } = useCart();
+  const { clearCart, cart, total } = useCart();
 
   const showToastMessage = () => {
-    toast.warn('Cart cleared!', {
+    toast.warn("Cart cleared!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -17,7 +17,7 @@ function Cart() {
       progress: undefined,
       theme: "light",
     });
-};
+  };
 
   if (cart.length < 1) {
     return (
@@ -32,11 +32,14 @@ function Cart() {
       {cart.map((item) => {
         return <CartItem key={item.id} item={item} />;
       })}
-      <h3>Total Price: $555</h3>
-      <button className="btn-clear" onClick={() => {
-        showToastMessage();
-        clearCart();
-      }}>
+      <h3>Total Price: ${total}</h3>
+      <button
+        className="btn-clear"
+        onClick={() => {
+          showToastMessage();
+          clearCart();
+        }}
+      >
         Clear Cart
       </button>
     </div>
