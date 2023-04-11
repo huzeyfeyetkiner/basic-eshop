@@ -9,7 +9,11 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "ADD_ITEM") {
-    if (state.cart.includes(action.payload.item)) {
+    const existingItemIndex = state.cart.findIndex(
+      (item) => item.id === action.payload.item.id
+    );
+
+    if (existingItemIndex !== -1) {
       let temp = state.cart.map((item) => {
         if (item.id === action.payload.id) {
           item.amount += 1;
@@ -17,10 +21,8 @@ const reducer = (state, action) => {
         }
         return item;
       });
-
       return { ...state, cart: temp };
     } else {
-      action.payload.item.amount = 1;
       return { ...state, cart: [...state.cart, action.payload.item] };
     }
   }

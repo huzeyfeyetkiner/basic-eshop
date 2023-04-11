@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "./reducer";
 const CartContext = createContext();
-
+const localCart = JSON.parse(localStorage.getItem("cartList"));
 const initialState = {
-  cart: [],
+  cart: localCart ? localCart : [],
   total: 0,
   amount: 0,
 };
@@ -36,7 +36,9 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    localStorage.setItem("cartList", JSON.stringify(state.cart));
     getTotal();
+    console.log(state.cart);
   }, [state.cart]);
 
   const values = {
