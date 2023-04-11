@@ -4,6 +4,8 @@
 
 ## axios, react-router-dom and react-toastify libraries used.
 
+## localStorage implemented
+
 ## insipired from frecodecamp cart project, API taken from that project.
 
 ### Home Page
