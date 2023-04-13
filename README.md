@@ -8,6 +8,8 @@
 
 ## insipired from frecodecamp cart project, API taken from that project.
 
+[Live demo of the project](https://basic-eshop.netlify.app)
+
 ### Home Page
 
 ![alt  application-photo pc](https://i.imgur.com/k8BEsvU.png)
